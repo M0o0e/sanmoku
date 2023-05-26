@@ -32,6 +32,9 @@ int main(void) {
         printf("横列を指定してください\n");
         scanf("%d", &x);
 
+        x = x - 1;
+        y = y - 1;
+
         if (banmen[x][y] == 0) {
             banmen[x][y] = 1;
         }
@@ -42,49 +45,45 @@ int main(void) {
             goto A;
         }
 
-        ///横列の確認
+        ///縦列の確認
 
         for (j = 0; j <= 3; j++) {
             for (i = 0; i <= 3; i++) {
                 if (banmen[i][j] != 1) {
                     i = 5;
                 }
-            }
-            if (i == 4) {
-                printf("あなたの勝利です\n");
-                break;
+                else if (i == 2) {
+                    printf("あなたの勝利です\n");
+                    return 0;
+                }
             }
 
-            else {
-                i = 0;
-            }
+
         }
 
-        ///縦列の確認
+        ///横列の確認
         for (i = 0; i <= 3; i++) {
             for (j = 0; j <= 3; j++) {
                 if (banmen[i][j] != 1) {
                     j = 5;
                 }
-            }
-            if (j == 4) {
-                printf("あなたの勝利です\n");
-                break;
+
+                else if (j == 2) {
+                    printf("あなたの勝利です\n");
+                    return 0;
+                }
             }
 
-            else {
-                j = 0;
-            }
         }
         ///斜めの確認
         for (i = 0; i <= 3; i++) {
             if (banmen[i][i] != 1) {
                 i = 5;
             }
-        }
-        if (i == 4) {
-            printf("あなたの勝利です\n");
-            break;
+            else if (i == 2) {
+                printf("あなたの勝利です\n");
+                return 0;
+            }
         }
 
         for (i = 0; i <= 3; i++) {
@@ -92,10 +91,11 @@ int main(void) {
             if (banmen[i][j] != 1) {
                 i = 5;
             }
-        }
-        if (i == 4) {
-            printf("あなたの勝利です\n");
-            break;
+
+            else if (i == 4) {
+                printf("あなたの勝利です\n");
+                return 0;
+            }
         }
 
 
