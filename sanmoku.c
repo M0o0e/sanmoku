@@ -122,6 +122,54 @@ int main(void) {
             printf("別の場所を選択してください\n");
             goto B;
         }
+
+///縦
+        for (j = 0; j <= 3; j++) {
+            for (i = 0; i <= 3; i++) {
+                if (banmen[i][j] != 1) {
+                    i = 5;
+                }
+                else if (i == 2) {
+                    printf("あなたの勝利です\n");
+                    return 0;
+                }
+            }
+        }
+///横列の確認
+        for (i = 0; i <= 3; i++) {
+            for (j = 0; j <= 3; j++) {
+                if (banmen[i][j] != 1) {
+                    j = 5;
+                }
+                else if (j == 2) {
+                    printf("あなたの勝利です\n");
+                    return 0;
+                }
+            }
+
+        }
+///斜めの確認
+        for (i = 0; i <= 3; i++) {
+            if (banmen[i][i] != 1) {
+                i = 5;
+            }
+            else if (i == 2) {
+                printf("あなたの勝利です\n");
+                return 0;
+            }
+        }
+        for (i = 0; i <= 3; i++) {
+            j = 2 - i;
+            if (banmen[i][j] != 1) {
+                i = 5;
+            }
+            else if (i == 4) {
+                printf("あなたの勝利です\n");
+                return 0;
+            }
+        }
+
+
     }
 
     return 0;
